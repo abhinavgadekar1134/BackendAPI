@@ -6,7 +6,7 @@ app.use(express.json());
 const Groq = require('groq-sdk');
 
 const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
-app.post('/prompt', async (req, res) => {
+app.use('/prompt', async (req, res) => {
 
     const chatCompletion = await groq.chat.completions.create({
         messages: [{
